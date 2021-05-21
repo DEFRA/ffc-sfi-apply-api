@@ -1,6 +1,6 @@
 apiVersion: v2
-description: description-of-project-goes-here
-name: ffc-template-node
+description: FFC apply for SFI API back end
+name: ffc-sfi-apply-api
 # this version is automatically updated in the build pipline
 version: 1.0.0
 dependencies:
