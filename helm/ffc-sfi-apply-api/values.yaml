@@ -44,3 +44,5 @@ readinessProbe:
 appInsights:
   key:appInsights:
   key:
+    
+aadPodIdentity: true
