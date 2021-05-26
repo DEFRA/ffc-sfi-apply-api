@@ -6,6 +6,10 @@ image: ffc-sfi-apply-api
 
 labels: {}
 
+azureIdentity:
+  clientID: not-a-real-clientID
+  resourceID: not-a-real-resourceID
+
 containerConfigMap:
   name: ffc-sfi-apply-api-config-map
 
@@ -36,3 +40,9 @@ readinessProbe:
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
+
+appInsights:
+  key:appInsights:
+  key:
+    
+aadPodIdentity: true
