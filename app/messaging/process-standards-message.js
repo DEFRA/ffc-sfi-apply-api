@@ -1,6 +1,6 @@
 async function processStandardsMessage (message, receiver) {
   try {
-    console.log('processStandardsMessage', message)
+    console.log('processStandardsMessage', message.body)
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)
