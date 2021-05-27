@@ -27,16 +27,16 @@ container:
   limitCpu: 40m
   port: 3000
   messageQueueHost: amq
-  eligibilitySubscription: eligibility
-  standardsSubscription: standards
-  validateSubscription: validate
-  submitSubscription: submit
-  calculateSubscription: calculate
-  eligibilityTopic: eligibility
-  standardsTopic: standards
-  validateTopic: validate
-  submitTopic: submit
-  calculateTopic: calculate
+  eligibilitySubscriptionAddress: eligibility
+  standardsSubscriptionAddress: standards
+  validateSubscriptionAddress: validate
+  submitSubscriptionAddress: submit
+  calculateSubscriptionAddress: calculate
+  eligibilityTopicAddress: eligibility
+  standardsTopicAddress: standards
+  validateTopicAddress: validate
+  submitTopicAddress: submit
+  calculateTopicAddress: calculate
 
 livenessProbe:
   path: /healthz
