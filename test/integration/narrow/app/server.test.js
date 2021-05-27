@@ -1,4 +1,5 @@
 describe('Server tests', () => {
+  jest.mock('ffc-messaging')
   let createServer
   let server
 
@@ -32,10 +33,6 @@ describe('Server tests', () => {
 
   beforeEach(() => {
     jest.resetModules()
-    jest.mock('../../../../app/messaging')
-    const mockMessageService = require('../../../../app/messaging')
-    mockMessageService.start = jest.fn()
-    mockMessageService.stop = jest.fn()
     jest.mock('../../../../app/plugins/router', () => {
       return {
         plugin: {
