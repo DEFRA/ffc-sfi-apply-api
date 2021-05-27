@@ -26,6 +26,17 @@ container:
   limitMemory: 40Mi
   limitCpu: 40m
   port: 3000
+  messageQueueHost: amq
+  eligibilitySubscriptionAddress: ffc-sfi-eligibility-check
+  standardsSubscriptionAddress: ffc-sfi-standards-request
+  validateSubscriptionAddress: ffc-sfi-agreement-validate
+  submitSubscriptionAddress: ffc-sfi-agreement-submit
+  calculateSubscriptionAddress: ffc-sfi-agreement-calculate
+  eligibilityTopicAddress: ffc-sfi-eligibility-check
+  standardsTopicAddress: ffc-sfi-standards-request
+  validateTopicAddress: ffc-sfi-agreement-validate
+  submitTopicAddress: ffc-sfi-agreement-submit
+  calculateTopicAddress: ffc-sfi-agreement-calculate
 
 livenessProbe:
   path: /healthz
