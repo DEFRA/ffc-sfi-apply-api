@@ -30,7 +30,7 @@ const mqSchema = joi.object({
   },
   calculateSubscription: {
     name: joi.string().default('ffc-sfi-agreement-calculate'),
-    address: joi.string().default('validate'),
+    address: joi.string().default('calculate'),
     username: joi.string(),
     password: joi.string(),
     topic: joi.string()

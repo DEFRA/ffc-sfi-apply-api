@@ -37,7 +37,8 @@
     "jest": "^26.6.3",
     "jest-junit": "^11.1.0",
     "nodemon": "^2.0.4",
-    "standard": "^14.3.4"
+    "standard": "^14.3.4",
+    "kafkajs": "^1.15.0"
   },
   "standard": {
     "globals": [
