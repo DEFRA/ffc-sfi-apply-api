@@ -13,6 +13,10 @@ azureIdentity:
 containerConfigMap:
   name: ffc-sfi-apply-api-config-map
 
+containerSecret:
+  name: ffc-sfi-apply-api-container-secret
+  type: Opaque
+
 deployment:
   restartPolicy: Always
   priorityClassName: default
