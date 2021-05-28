@@ -1,3 +1,4 @@
+
 async function processSubmitMessage (message, receiver) {
   try {
     console.info('received submitted agreement')
