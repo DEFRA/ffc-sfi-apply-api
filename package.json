@@ -22,6 +22,7 @@
     "@hapi/catbox-redis": "^6.0.2",
     "@hapi/hapi": "^20.1.0",
     "@hapi/hoek": "^9.2.0",
+    "@hapi/wreck": "^17.1.0",
     "@hapi/yar": "^10.1.1",
     "applicationinsights": "^1.8.2",
     "ffc-messaging": "^2.1.3",
