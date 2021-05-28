@@ -1,6 +1,7 @@
 {
   "name": "ffc-sfi-apply-api",
-  "version": "1.0.2",
+  "version": "1.1.1",
+
   "description": "FFC apply for SFI API back end",
   "homepage": "https://github.com/DEFRA/ffc-sfi-apply-api",
   "main": "app/index.js",
@@ -10,16 +11,32 @@
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js"
   },
   "author": "Defra",
-  "contributors": [],
+  "contributors": [
+    "John Watson <john.watson2@rpa.gov.uk>",
+    "Steve Dickinson <steve.dickinson@defra.gov.uk>",
+    "Fay Toward <fay.toward@rpa.gov.uk>",
+    "Fareed Mohammed <fareed.mohammed@defra.gov.uk>"
+  ],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@hapi/hapi": "^20.0.0"
+    "@azure/identity": "^1.2.2",
+    "@hapi/hapi": "^20.1.0",
+    "joi": "^17.4.0",
+    "applicationinsights": "^1.8.2",
+    "ffc-messaging": "^2.1.3"
   },
   "devDependencies": {
-    "jest": "^26.4.0",
+    "@azure/service-bus": "^7.0.2",
+    "@hapi/good": "^9.0.0",
+    "@hapi/good-console": "^9.0.0",
+    "@hapi/good-squeeze": "^6.0.0",
+    "@pact-foundation/pact": "^9.11.0",
+    "blipp": "^4.0.1",
+    "jest": "^26.6.3",
     "jest-junit": "^11.1.0",
     "nodemon": "^2.0.4",
-    "standard": "^14.3.4"
+    "standard": "^14.3.4",
+    "kafkajs": "^1.15.0"
   },
   "standard": {
     "globals": [
