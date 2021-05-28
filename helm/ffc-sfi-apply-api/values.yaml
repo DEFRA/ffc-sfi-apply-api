@@ -29,7 +29,7 @@ container:
   requestCpu: 10m
   limitMemory: 40Mi
   limitCpu: 40m
-  port: 3000
+  port: 3001
   messageQueueHost: amq
   eligibilitySubscriptionAddress: ffc-sfi-eligibility-check-api
   standardsSubscriptionAddress: ffc-sfi-standards-request-api
@@ -44,14 +44,14 @@ container:
 
 livenessProbe:
   path: /healthz
-  port: 3000
+  port: 3001
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
 
 readinessProbe:
   path: /healthy
-  port: 3000
+  port: 3001
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
