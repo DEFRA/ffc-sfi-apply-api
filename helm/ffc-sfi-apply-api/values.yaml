@@ -13,6 +13,10 @@ azureIdentity:
 containerConfigMap:
   name: ffc-sfi-apply-api-config-map
 
+containerSecret:
+  name: ffc-sfi-apply-api-container-secret
+  type: Opaque
+
 deployment:
   restartPolicy: Always
   priorityClassName: default
@@ -25,35 +29,35 @@ container:
   requestCpu: 10m
   limitMemory: 40Mi
   limitCpu: 40m
-  port: 3000
+  port: 3001
   messageQueueHost: amq
-  eligibilitySubscriptionAddress: ffc-sfi-eligibility-check
-  standardsSubscriptionAddress: ffc-sfi-standards-request
-  validateSubscriptionAddress: ffc-sfi-agreement-validate
-  submitSubscriptionAddress: ffc-sfi-agreement-submit
-  calculateSubscriptionAddress: ffc-sfi-agreement-calculate
+  eligibilitySubscriptionAddress: ffc-sfi-eligibility-check-api
+  standardsSubscriptionAddress: ffc-sfi-standards-request-api
+  validateSubscriptionAddress: ffc-sfi-agreement-validate-api
+  submitSubscriptionAddress: ffc-sfi-agreement-submit-api
+  calculateSubscriptionAddress: ffc-sfi-agreement-calculate-api
   eligibilityTopicAddress: ffc-sfi-eligibility-check
   standardsTopicAddress: ffc-sfi-standards-request
   validateTopicAddress: ffc-sfi-agreement-validate
   submitTopicAddress: ffc-sfi-agreement-submit
   calculateTopicAddress: ffc-sfi-agreement-calculate
+  agreementCalculatorEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
 
 livenessProbe:
   path: /healthz
-  port: 3000
+  port: 3001
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
 
 readinessProbe:
   path: /healthy
-  port: 3000
+  port: 3001
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
 
 appInsights:
-  key:appInsights:
   key:
     
 aadPodIdentity: true

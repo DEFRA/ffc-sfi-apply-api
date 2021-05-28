@@ -1,17 +1,22 @@
 const Joi = require('joi')
 const mqConfig = require('./mq-config')
+const cacheConfig = require('./cache')
 const { development, production, test } = require('./constants').environments
 
 // Define config schema
 const schema = Joi.object({
-  port: Joi.number().default(3004),
-  env: Joi.string().valid(development, test, production).default(development)
+  port: Joi.number().default(3001),
+  env: Joi.string().valid(development, test, production).default(development),
+  agreementCalculatorEndpoint: Joi.string().uri().required(),
+  restClientTimeoutMillis: Joi.number().default(60000)
 })
 
 // Build config
 const config = {
   port: process.env.PORT,
-  env: process.env.NODE_ENV
+  env: process.env.NODE_ENV,
+  agreementCalculatorEndpoint: process.env.AGREEMENT_CALCULATOR_ENDPOINT,
+  restClientTimeoutMillis: process.env.REST_CLIENT_TIMEOUT_IN_MILLIS
 }
 
 // Validate config
@@ -31,10 +36,19 @@ const value = result.value
 value.isDev = value.env === development
 value.isProd = value.env === production
 
+value.cacheConfig = cacheConfig
+
 value.eligibilitySubscription = mqConfig.eligibilitySubscription
 value.standardsSubscription = mqConfig.standardsSubscription
 value.validateSubscription = mqConfig.validateSubscription
 value.calculateSubscription = mqConfig.calculateSubscription
 value.submitSubscription = mqConfig.submitSubscription
+
+// Don't try to connect to Redis for testing or if Redis not available
+value.cacheConfig.useRedis = !value.isTest && value.cacheConfig.redisHost !== undefined
+
+if (!value.useRedis) {
+  console.info('Redis disabled, using in memory cache')
+}
 
 module.exports = value

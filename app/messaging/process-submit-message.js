@@ -1,6 +1,9 @@
+const api = require('../api')
+
 async function processSubmitMessage (message, receiver) {
   try {
-    console.log('processSubmitMessage', message.body)
+    console.info('received submitted agreement')
+    await api.post('/submit', message.body)
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)
