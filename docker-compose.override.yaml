@@ -10,8 +10,8 @@ services:
     image: ffc-sfi-apply-api-development
     container_name: ffc-sfi-apply-api-development
     ports:
-      - "3000:3000"
-      - "9229:9229"
+      - "3001:3001"
+      - "9230:9229"
     volumes:
       - ./app/:/home/node/app/
       - ./package.json:/home/node/package.json
@@ -21,7 +21,7 @@ services:
     volumes:
       - redis_data:/data
     ports:
-      - "6379:6379"
+      - "6380:6379"
 
 volumes:
   redis_data:

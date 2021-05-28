@@ -6,7 +6,7 @@ describe('Server tests', () => {
   test('createServer returns server', async () => {
     jest.mock('../../../../app/config', () => {
       return {
-        port: 3004,
+        port: 3001,
         isDev: false
       }
     })
@@ -20,7 +20,7 @@ describe('Server tests', () => {
   test('createServer returns server in development', async () => {
     jest.mock('../../../../app/config', () => {
       return {
-        port: 3004,
+        port: 3001,
         isDev: true
       }
     })

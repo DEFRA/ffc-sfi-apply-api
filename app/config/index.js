@@ -4,7 +4,7 @@ const { development, production, test } = require('./constants').environments
 
 // Define config schema
 const schema = Joi.object({
-  port: Joi.number().default(3004),
+  port: Joi.number().default(3001),
   env: Joi.string().valid(development, test, production).default(development),
   cacheName: Joi.string(),
   redisHost: Joi.string(),
