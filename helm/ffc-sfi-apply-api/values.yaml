@@ -31,11 +31,11 @@ container:
   limitCpu: 40m
   port: 3000
   messageQueueHost: amq
-  eligibilitySubscriptionAddress: ffc-sfi-eligibility-check
-  standardsSubscriptionAddress: ffc-sfi-standards-request
-  validateSubscriptionAddress: ffc-sfi-agreement-validate
-  submitSubscriptionAddress: ffc-sfi-agreement-submit
-  calculateSubscriptionAddress: ffc-sfi-agreement-calculate
+  eligibilitySubscriptionAddress: ffc-sfi-eligibility-check-api
+  standardsSubscriptionAddress: ffc-sfi-standards-request-api
+  validateSubscriptionAddress: ffc-sfi-agreement-validate-api
+  submitSubscriptionAddress: ffc-sfi-agreement-submit-api
+  calculateSubscriptionAddress: ffc-sfi-agreement-calculate-api
   eligibilityTopicAddress: ffc-sfi-eligibility-check
   standardsTopicAddress: ffc-sfi-standards-request
   validateTopicAddress: ffc-sfi-agreement-validate
