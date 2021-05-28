@@ -1,4 +1,4 @@
-require('./services/app-insights').setup()
+require('./insights').setup()
 const createServer = require('./server')
 
 createServer()
