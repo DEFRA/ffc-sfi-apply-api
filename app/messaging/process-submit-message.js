@@ -1,6 +1,6 @@
 async function processSubmitMessage (message, receiver) {
   try {
-    console.log('processSubmitMessage', message.body)
+    console.info('received submitted agreement')
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)

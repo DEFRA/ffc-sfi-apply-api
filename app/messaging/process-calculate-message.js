@@ -1,6 +1,6 @@
 async function processCalculateMessage (message, receiver) {
   try {
-    console.log('processCalculateMessage', message.body)
+    console.info('received request for calculation')
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)

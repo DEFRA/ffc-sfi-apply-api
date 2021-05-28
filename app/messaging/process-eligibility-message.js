@@ -1,6 +1,6 @@
 async function processEligibilityMessage (message, receiver) {
   try {
-    console.log('processEligibilityMessage', message.body)
+    console.info('received request for eligibility check')
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)

@@ -1,6 +1,6 @@
 async function processValidateMessage (message, receiver) {
   try {
-    console.log('processSubscriptionMessage', message.body)
+    console.info('received request for validation')
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)
