@@ -41,6 +41,7 @@ container:
   validateTopicAddress: ffc-sfi-agreement-validate
   submitTopicAddress: ffc-sfi-agreement-submit
   calculateTopicAddress: ffc-sfi-agreement-calculate
+  agreementCalculatorEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
 
 livenessProbe:
   path: /healthz

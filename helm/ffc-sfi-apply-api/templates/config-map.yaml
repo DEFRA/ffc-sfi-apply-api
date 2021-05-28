@@ -18,4 +18,5 @@ data:
   VALIDATE_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.validateSubscriptionAddress }}
   CALCULATE_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.calculateSubscriptionAddress }}
   SUBMIT_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.submitSubscriptionAddress }}
+  AGREEMENT_CALCULATOR_ENDPONT: {{ quote .Values.container.agreementCalculatorEndpoint }}
 {{- end -}}
