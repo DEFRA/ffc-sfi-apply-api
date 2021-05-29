@@ -6,7 +6,7 @@ async function processStandardsMessage (message, receiver) {
     console.info('Received request for available standards')
     cache.set('standards', message.correlationId, message.body)
     console.info(`Request for standards stored in cache, correlation Id: ${message.correlationId}`)
-    const payload = await api.get('/standards')
+    const payload = await api.get('/standards', message.body)
     cache.update('standards', message.correlationId, payload)
     console.info(`Response available for standards request, correlation Id: ${message.correlationId}`)
     await receiver.completeMessage(message)
