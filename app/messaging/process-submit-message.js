@@ -2,7 +2,7 @@ const api = require('../api')
 
 async function processSubmitMessage (message, receiver) {
   try {
-    console.info('received submitted agreement')
+    console.info('Received submitted agreement')
     await api.post('/submit', message.body)
     await receiver.completeMessage(message)
   } catch (err) {
