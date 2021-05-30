@@ -18,4 +18,9 @@ data:
   CALCULATE_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.calculateSubscriptionAddress }}
   SUBMIT_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.submitSubscriptionAddress }}
   AGREEMENT_CALCULATOR_ENDPOINT: {{ quote .Values.container.agreementCalculatorEndpoint }}
+  {{- if .Values.container.redisHostname }}
+  REDIS_HOSTNAME: {{ quote .Values.container.redisHostname }}
+  {{- end }}
+  REDIS_PORT: {{ quote .Values.container.redisPort }}
+  REDIS_PARTITION: {{ quote .Values.container.redisPartition }}
 {{- end -}}

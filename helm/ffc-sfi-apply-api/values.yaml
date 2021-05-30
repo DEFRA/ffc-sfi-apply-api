@@ -42,6 +42,10 @@ container:
   submitTopicAddress: ffc-sfi-agreement-submit
   calculateTopicAddress: ffc-sfi-agreement-calculate
   agreementCalculatorEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
+  redisHostname: redis-redis-ha.default
+  redisPassword: redis
+  redisPort: 6379
+  redisPartition: ffc-sfi-apply-api
 
 livenessProbe:
   path: /healthz

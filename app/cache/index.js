@@ -24,26 +24,26 @@ const setup = (server) => {
   })
 }
 
-const get = (cacheName, key) => {
+const get = async (cacheName, key) => {
   const cache = getCache(cacheName)
-  const object = cache.get(key)
+  const object = await cache.get(key)
   return object ?? {}
 }
 
-const set = (cacheName, key, value) => {
+const set = async (cacheName, key, value) => {
   const cache = getCache(cacheName)
-  cache.set(key, value)
+  await cache.set(key, value)
 }
 
-const update = (cacheName, key, object) => {
-  const existing = get(cacheName, key)
+const update = async (cacheName, key, object) => {
+  const existing = await get(cacheName, key)
   hoek.merge(existing, object, { mergeArrays: false })
-  set(cacheName, key, existing)
+  await set(cacheName, key, existing)
 }
 
-const clear = (cacheName, key) => {
+const clear = async (cacheName, key) => {
   const cache = getCache(cacheName)
-  cache.drop(key)
+  await cache.drop(key)
 }
 
 const getCache = (cacheName) => {
