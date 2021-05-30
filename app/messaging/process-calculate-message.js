@@ -4,6 +4,7 @@ const api = require('../api')
 async function processCalculateMessage (message, receiver) {
   try {
     console.info('Received request for calculation')
+    await cache.clear('calculation', message.correlationId)
     await cache.set('calculation', message.correlationId, message.body)
     console.info(`Request for calculation stored in cache, correlation Id: ${message.correlationId}`)
     const payload = await api.post('/calculate', message.body)

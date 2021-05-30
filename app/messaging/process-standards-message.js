@@ -4,6 +4,7 @@ const api = require('../api')
 async function processStandardsMessage (message, receiver) {
   try {
     console.info('Received request for available standards')
+    await cache.clear('standards', message.correlationId)
     await cache.set('standards', message.correlationId, message.body)
     console.info(`Request for standards stored in cache, correlation Id: ${message.correlationId}`)
     const payload = await api.get('/standards', message.body)

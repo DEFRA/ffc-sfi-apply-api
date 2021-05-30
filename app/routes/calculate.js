@@ -9,7 +9,7 @@ module.exports = [{
 
       if (correlationId) {
         const cacheData = await cache.get('calculation', correlationId)
-        if (cacheData && cacheData.paymentAmount) {
+        if (cacheData && cacheData.paymentAmount !== undefined) {
           return h.response(cacheData).code(200)
         }
       }
