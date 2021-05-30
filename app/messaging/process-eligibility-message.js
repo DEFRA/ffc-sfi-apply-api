@@ -4,10 +4,10 @@ const api = require('../api')
 async function processEligibilityMessage (message, receiver) {
   try {
     console.info('Received request for eligibility check')
-    cache.set('eligibility', message.correlationId, message.body)
+    await cache.set('eligibility', message.correlationId, message.body)
     console.info(`Request for eligibility check stored in cache, correlation Id: ${message.correlationId}`)
     const payload = await api.post('/check-eligibility', message.body)
-    cache.update('eligibility', message.correlationId, payload)
+    await cache.update('eligibility', message.correlationId, payload)
     console.info(`Response available for eligibility check, correlation Id: ${message.correlationId}`)
     await receiver.completeMessage(message)
   } catch (err) {
