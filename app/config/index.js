@@ -34,6 +34,7 @@ const value = result.value
 
 // Add some helper props
 value.isDev = value.env === development
+value.isTest = value.env === test
 value.isProd = value.env === production
 
 value.cacheConfig = cacheConfig
