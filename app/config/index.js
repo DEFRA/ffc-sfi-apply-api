@@ -34,6 +34,7 @@ const value = result.value
 
 // Add some helper props
 value.isDev = value.env === development
+value.isTest = value.env === test
 value.isProd = value.env === production
 
 value.cacheConfig = cacheConfig
@@ -45,7 +46,7 @@ value.calculateSubscription = mqConfig.calculateSubscription
 value.submitSubscription = mqConfig.submitSubscription
 
 // Don't try to connect to Redis for testing or if Redis not available
-value.cacheConfig.useRedis = !value.isTest && value.cacheConfig.redisHost !== undefined
+value.useRedis = !value.isTest && value.cacheConfig.redisCatboxOptions.host !== undefined
 
 if (!value.useRedis) {
   console.info('Redis disabled, using in memory cache')

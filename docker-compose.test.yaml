@@ -10,6 +10,8 @@ services:
     image: ffc-sfi-apply-api-development
     container_name: ffc-sfi-apply-api-test
     command: npm run test
+    environment: 
+      NODE_ENV: test
     volumes:
       - ./app/:/home/node/app/
       - ./test/:/home/node/test/

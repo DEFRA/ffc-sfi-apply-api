@@ -2,6 +2,7 @@ const hapi = require('@hapi/hapi')
 const config = require('./config')
 const messageService = require('./messaging')
 const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
+const catboxOptions = config.useRedis ? config.cacheConfig.redisCatboxOptions : {}
 const cache = require('./cache')
 
 async function createServer () {
@@ -21,7 +22,7 @@ async function createServer () {
     cache: [{
       provider: {
         constructor: catbox,
-        options: config.catboxOptions
+        options: catboxOptions
       }
     }]
   })
