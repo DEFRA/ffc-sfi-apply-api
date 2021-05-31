@@ -28,7 +28,7 @@ container:
   requestMemory: 10Mi
   requestCpu: 10m
   limitMemory: 120Mi
-  limitCpu: 40m
+  limitCpu: 120m
   port: 3001
   messageQueueHost: amq
   eligibilitySubscriptionAddress: ffc-sfi-eligibility-check-api
