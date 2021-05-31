@@ -27,7 +27,7 @@ container:
   imagePullPolicy: IfNotPresent
   requestMemory: 10Mi
   requestCpu: 10m
-  limitMemory: 40Mi
+  limitMemory: 120Mi
   limitCpu: 40m
   port: 3001
   messageQueueHost: amq
