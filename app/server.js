@@ -21,7 +21,7 @@ async function createServer () {
     cache: [{
       provider: {
         constructor: catbox,
-        options: config.catboxOptions
+        options: config.cacheConfig.catboxOptions
       }
     }]
   })
