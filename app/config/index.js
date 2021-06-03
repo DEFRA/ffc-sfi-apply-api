@@ -44,6 +44,7 @@ value.standardsSubscription = mqConfig.standardsSubscription
 value.validateSubscription = mqConfig.validateSubscription
 value.calculateSubscription = mqConfig.calculateSubscription
 value.submitSubscription = mqConfig.submitSubscription
+value.withdrawSubscription = mqConfig.withdrawSubscription
 
 // Don't try to connect to Redis for testing or if Redis not available
 value.useRedis = !value.isTest && value.cacheConfig.redisCatboxOptions.host !== undefined
