@@ -29,8 +29,8 @@ deployment:
 
 container:
   imagePullPolicy: IfNotPresent
-  requestMemory: 10Mi
-  requestCpu: 10m
+  requestMemory: 120Mi
+  requestCpu: 120m
   limitMemory: 120Mi
   limitCpu: 120m
   port: 3001
@@ -47,6 +47,7 @@ container:
   submitTopicAddress: ffc-sfi-agreement-submit
   withdrawTopicAddress: ffc-sfi-agreement-withdraw
   calculateTopicAddress: ffc-sfi-agreement-calculate
+  paymentTopicAddress: ffc-sfi-payment-request
   agreementCalculatorEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
   redisHostname: redis-redis-ha.default
   redisPassword: redis
