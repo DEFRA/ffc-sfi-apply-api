@@ -84,19 +84,10 @@ docker-compose build
 
 Use Docker Compose to run service locally.
 
-The service uses [Liquibase](https://www.liquibase.org/) to manage database migrations. To ensure the appropriate migrations have been run the utility script `scripts/start` may be run to execute the migrations, then the application.
+The utility script `scripts/start` may be run to simplify startup.
 
 Alternatively the steps can be run manually:
-* run migrations
-  * `docker-compose -f docker-compose.migrate.yaml run --rm database-up`
-* start
-  * `docker-compose up`
-* stop
-  * `docker-compose down` or CTRL-C
 
-Additional Docker Compose files are provided for scenarios such as linking to other running services.
-
-Link to other services:
 ```
 docker-compose -f docker-compose.yaml -f docker-compose.link.yaml up
 ```
