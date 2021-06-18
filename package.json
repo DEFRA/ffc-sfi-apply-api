@@ -1,6 +1,6 @@
 {
   "name": "ffc-sfi-apply-api",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "FFC apply for SFI API back end",
   "homepage": "https://github.com/DEFRA/ffc-sfi-apply-api",
   "main": "app/index.js",
