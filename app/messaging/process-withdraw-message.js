@@ -2,7 +2,7 @@ const api = require('../api')
 
 async function processWithdrawMessage (message, receiver) {
   try {
-    console.info('Received withdraw agreement request')
+    console.info('Received withdraw agreement request', message.body)
     await api.post('/withdraw', message.body)
     await receiver.completeMessage(message)
   } catch (err) {
