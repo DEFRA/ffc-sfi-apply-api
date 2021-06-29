@@ -10,6 +10,7 @@ module.exports = [{
       if (correlationId) {
         const cacheData = await cache.get('validation', correlationId)
         if (cacheData && cacheData.isValid !== undefined) {
+          cacheData.correlationId = correlationId
           return h.response(cacheData).code(200)
         }
       }
