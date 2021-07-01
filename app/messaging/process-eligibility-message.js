@@ -3,13 +3,14 @@ const api = require('../api')
 
 async function processEligibilityMessage (message, receiver) {
   try {
+    const correlationId = message.correlationId
     console.info('Received request for eligibility check')
-    await cache.clear('eligibility', message.correlationId)
-    await cache.set('eligibility', message.correlationId, message.body)
-    console.info(`Request for eligibility check stored in cache, correlation Id: ${message.correlationId}`)
+    await cache.clear('eligibility', correlationId)
+    await cache.set('eligibility', correlationId, message.body)
+    console.info(`Request for eligibility check stored in cache, correlation Id: ${correlationId}`)
     const payload = await api.post('/check-eligibility', message.body)
-    await cache.update('eligibility', message.correlationId, payload)
-    console.info(`Response available for eligibility check, correlation Id: ${message.correlationId}`)
+    await cache.update('eligibility', correlationId, { ...payload, correlationId })
+    console.info(`Response available for eligibility check, correlation Id: ${correlationId}`)
     await receiver.completeMessage(message)
   } catch (err) {
     console.error('Unable to process message:', err)
