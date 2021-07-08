@@ -20,7 +20,7 @@ data:
   SUBMIT_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.submitSubscriptionAddress }}
   WITHDRAW_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.withdrawSubscriptionAddress }}
   PAYMENT_TOPIC_ADDRESS: {{ quote .Values.container.paymentTopicAddress }}
-  AGREEMENT_CALCULATOR_ENDPOINT: {{ quote .Values.container.agreementCalculatorEndpoint }}
+  SITI_AGRI_ENDPOINT: {{ quote .Values.container.sitiAgriEndpoint }}
   {{- if .Values.container.redisHostname }}
   REDIS_HOSTNAME: {{ quote .Values.container.redisHostname }}
   {{- end }}

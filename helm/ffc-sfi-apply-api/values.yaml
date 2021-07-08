@@ -48,7 +48,7 @@ container:
   withdrawTopicAddress: ffc-sfi-agreement-withdraw
   calculateTopicAddress: ffc-sfi-agreement-calculate
   paymentTopicAddress: ffc-sfi-payment-request
-  agreementCalculatorEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
+  sitiAgriEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
   redisHostname: redis-redis-ha.default
   redisPassword: redis
   redisPort: 6379
@@ -70,5 +70,5 @@ readinessProbe:
 
 appInsights:
   key:
-    
+
 aadPodIdentity: true

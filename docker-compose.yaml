@@ -29,4 +29,4 @@ services:
       REQUEST_SBI_TOPIC_ADDRESS: ${REQUEST_SBI_TOPIC_ADDRESS:-notset}
       PAYMENT_TOPIC_ADDRESS: ${PAYMENT_TOPIC_ADDRESS:-notset}
       REDIS_HOSTNAME: redis
-      AGREEMENT_CALCULATOR_ENDPOINT: http://ffc-sfi-siti-agri-mock:3002
+      SITI_AGRI_ENDPOINT: http://ffc-sfi-siti-agri-mock:3002
