@@ -45,6 +45,7 @@ value.validateSubscription = mqConfig.validateSubscription
 value.calculateSubscription = mqConfig.calculateSubscription
 value.submitSubscription = mqConfig.submitSubscription
 value.withdrawSubscription = mqConfig.withdrawSubscription
+value.requestSBISubscription = mqConfig.requestSBISubscription
 value.paymentTopic = mqConfig.paymentTopic
 
 // Don't try to connect to Redis for testing or if Redis not available
