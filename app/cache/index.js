@@ -25,7 +25,7 @@ const setup = (server) => {
   })
   requestSBICache = server.cache({
     expiresIn: config.requestSBISegment.expiresIn,
-    segment: config.requestSBIegment.name
+    segment: config.requestSBISegment.name
   })
 }
 
