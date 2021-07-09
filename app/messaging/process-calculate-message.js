@@ -7,7 +7,7 @@ async function processCalculateMessage (message, receiver) {
     await cache.clear('calculation', message.correlationId)
     await cache.set('calculation', message.correlationId, message.body)
     console.info(`Request for calculation stored in cache, correlation Id: ${message.correlationId}`)
-    const payload = await api.post('/calculate', message.body)
+    const payload = await api.post('/calculate', message.body, true)
     await cache.update('calculation', message.correlationId, payload)
     console.info(`Response available for calculation, correlation Id: ${message.correlationId}`)
     await receiver.completeMessage(message)
