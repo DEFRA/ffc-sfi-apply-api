@@ -1,7 +1,7 @@
 const wreck = require('@hapi/wreck')
 const config = require('../config')
 
-function getEndpoint(useMock) {
+function getEndpoint (useMock) {
   return useMock ? config.mockSitiAgriEndpoint : config.apiGatewayEndpoint
 }
 
