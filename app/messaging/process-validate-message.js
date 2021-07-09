@@ -7,7 +7,7 @@ async function processValidateMessage (message, receiver) {
     await cache.clear('validation', message.correlationId)
     await cache.set('validation', message.correlationId, message.body)
     console.info(`Request for validation stored in cache, correlation Id: ${message.correlationId}`)
-    const payload = await api.post('/validate', message.body)
+    const payload = await api.post('/validate', message.body, true)
     await cache.update('validation', message.correlationId, payload)
     console.info(`Response available for validation check, correlation Id: ${message.correlationId}`)
     await receiver.completeMessage(message)

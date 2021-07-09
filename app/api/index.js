@@ -1,13 +1,17 @@
 const wreck = require('@hapi/wreck')
 const config = require('../config')
 
-async function get (url, token) {
-  const { payload } = await wreck.get(`${config.agreementCalculatorEndpoint}${url}`, getConfiguration(token))
+function getEndpoint (useMock) {
+  return useMock ? config.mockSitiAgriEndpoint : config.apiGatewayEndpoint
+}
+
+async function get (url, token, useMock) {
+  const { payload } = await wreck.get(`${getEndpoint(useMock)}${url}`, getConfiguration(token))
   return payload
 }
 
-async function post (url, data, token) {
-  const { payload } = await wreck.post(`${config.agreementCalculatorEndpoint}${url}`, {
+async function post (url, data, useMock, token) {
+  const { payload } = await wreck.post(`${getEndpoint(useMock)}${url}`, {
     payload: data,
     ...getConfiguration(token)
   })

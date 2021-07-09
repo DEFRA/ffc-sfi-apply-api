@@ -8,7 +8,7 @@ async function processEligibilityMessage (message, receiver) {
     await cache.clear('eligibility', correlationId)
     await cache.set('eligibility', correlationId, message.body)
     console.info(`Request for eligibility check stored in cache, correlation Id: ${correlationId}`)
-    const payload = await api.post('/check-eligibility', message.body)
+    const payload = await api.post('/check-eligibility', message.body, true)
     await cache.update('eligibility', correlationId, { ...payload, correlationId })
     console.info(`Response available for eligibility check, correlation Id: ${correlationId}`)
     await receiver.completeMessage(message)
