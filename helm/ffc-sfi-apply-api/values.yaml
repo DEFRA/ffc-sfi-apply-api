@@ -49,6 +49,7 @@ container:
   calculateTopicAddress: ffc-sfi-agreement-calculate
   paymentTopicAddress: ffc-sfi-payment-request
   requestSbiTopicAddress: ffc-sfi-request-sbi
+  requestSbiSubscriptionAddress: ffc-sfi-apply-api
   mockSitiAgriEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
   apiGatewayEndpoint: http://ffc-sfi-api-gateway.ffc-sfi
   redisHostname: redis-redis-ha.default
