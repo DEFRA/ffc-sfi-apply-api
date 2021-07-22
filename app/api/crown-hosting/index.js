@@ -1,6 +1,6 @@
-const { getStandardsSummary } = require('./standards.js')
-const { createNewApplication } = require('./application.js')
-const { getParcelLevelAction } = require('./parcel.js')
+const { getStandardsSummary } = require('./standards')
+const { createNewApplication } = require('./application')
+const { getParcelLevelAction } = require('./parcel')
 
 module.exports = {
   getStandardsSummary,
