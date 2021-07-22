@@ -1,12 +1,11 @@
-const { get } = require('../api/crown-hosting/base')
+const { getParcelLevelAction } = require('../api/crown-hosting')
 
 const getParcelsByActionCode = async (callerId, applicationId, actionCodes, standard) => {
   const promises = []
   const actionCodesLength = actionCodes.length
 
   for (let i = 0; i < actionCodesLength; i++) {
-    const url = `api/v1/sfi/applications/${applicationId}/parcel-level-actions/${actionCodes[i]}`
-    promises.push(get(url, callerId))
+    promises.push(getParcelLevelAction(callerId, applicationId, actionCodes[i]))
   }
 
   standard.parcels = []
