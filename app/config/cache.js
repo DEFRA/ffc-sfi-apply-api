@@ -21,6 +21,10 @@ module.exports = {
     name: 'request-sbi',
     expiresIn: defaultExpiresIn
   },
+  applicationSegment: {
+    name: 'application',
+    expiresIn: defaultExpiresIn
+  },
   redisCatboxOptions: {
     host: process.env.REDIS_HOSTNAME,
     port: process.env.REDIS_PORT,

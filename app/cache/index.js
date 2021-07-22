@@ -4,6 +4,7 @@ let eligibilityCache
 let standardsCache
 let validationCache
 let calculationCache
+let applicationCache
 let requestSBICache
 
 const setup = (server) => {
@@ -26,6 +27,10 @@ const setup = (server) => {
   requestSBICache = server.cache({
     expiresIn: config.requestSBISegment.expiresIn,
     segment: config.requestSBISegment.name
+  })
+  applicationCache = server.cache({
+    expiresIn: config.applicationSegment.expiresIn,
+    segment: config.applicationSegment.name
   })
 }
 
@@ -63,6 +68,8 @@ const getCache = (cacheName) => {
       return calculationCache
     case 'request-sbi':
       return requestSBICache
+    case 'application':
+      return applicationCache
     default:
       throw new Error(`Cache ${cacheName} does not exist`)
   }

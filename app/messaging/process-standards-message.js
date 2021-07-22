@@ -1,14 +1,20 @@
 const cache = require('../cache')
-const api = require('../api')
+const getStandards = require('../standards')
 
 async function processStandardsMessage (message, receiver) {
   try {
-    console.info('Received request for available standards')
+    const { sbi, callerId } = message.body
+    console.info('Received request for available standards', message.body)
     await cache.clear('standards', message.correlationId)
     await cache.set('standards', message.correlationId, message.body)
     console.info(`Request for standards stored in cache, correlation Id: ${message.correlationId}`)
-    const payload = await api.get('/standards', message.body, true)
-    await cache.update('standards', message.correlationId, payload)
+    await cache.update('standards', message.correlationId, { ready: false })
+    const application = await cache.get('application', message.correlationId)
+    const standards = await getStandards(callerId, sbi, application.applicationId)
+
+    await cache.update('standards', message.correlationId, { standards: standards.standards, ready: true })
+    await cache.update('application', message.correlationId, { applicationId: standards.applicationId })
+
     console.info(`Response available for standards request, correlation Id: ${message.correlationId}`)
     await receiver.completeMessage(message)
   } catch (err) {

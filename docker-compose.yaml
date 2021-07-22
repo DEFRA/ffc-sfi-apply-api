@@ -30,4 +30,4 @@ services:
       PAYMENT_TOPIC_ADDRESS: ${PAYMENT_TOPIC_ADDRESS:-notset}
       REDIS_HOSTNAME: redis
       MOCK_SITI_AGRI_ENDPOINT: http://ffc-sfi-siti-agri-mock:3002
-      API_GATEWAY_ENDPOINT: http://ffc-sfi-api-gateway:3005
+      API_GATEWAY_ENDPOINT: ${CH_API_GATEWAY:-notset}
