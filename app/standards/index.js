@@ -5,10 +5,7 @@ const standardsCodes = require('./standards-codes')
 const filterStandardsSummary = require('./filter')
 
 const buildStandards = async (callerId, applicationId, standardsSummary) => {
-  const standardsLength = standards.length
-
-  for (let i = 0; i < standardsLength; i++) {
-    const standard = standards[i]
+  for (const standard of standards) {
     const standardsCode = standardsCodes.find(a => a.code === standard.code).standardCode
     const actionCodes = filterStandardsSummary(standardsSummary, standardsCode)
     await getParcelsByActionCode(callerId, applicationId, actionCodes, standard)
