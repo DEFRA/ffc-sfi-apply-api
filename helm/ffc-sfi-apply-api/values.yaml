@@ -51,7 +51,7 @@ container:
   requestSbiTopicAddress: ffc-sfi-request-sbi
   requestSbiSubscriptionAddress: ffc-sfi-apply-api
   mockSitiAgriEndpoint: http://ffc-sfi-siti-agri-mock.ffc-sfi
-  apiGatewayEndpoint: http://ffc-sfi-api-gateway.ffc-sfi
+  chApiGateway: 
   redisHostname: redis-redis-ha.default
   redisPassword: redis
   redisPort: 6379
