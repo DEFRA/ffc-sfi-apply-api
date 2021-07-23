@@ -19,7 +19,6 @@ data:
   CALCULATE_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.calculateSubscriptionAddress }}
   SUBMIT_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.submitSubscriptionAddress }}
   WITHDRAW_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.withdrawSubscriptionAddress }}
-  PAYMENT_TOPIC_ADDRESS: {{ quote .Values.container.paymentTopicAddress }}
   REQUEST_SBI_TOPIC_ADDRESS: {{ quote .Values.container.requestSbiTopicAddress }}
   REQUEST_SBI_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.requestSbiSubscriptionAddress }}
   MOCK_SITI_AGRI_ENDPOINT: {{ quote .Values.container.mockSitiAgriEndpoint }}
