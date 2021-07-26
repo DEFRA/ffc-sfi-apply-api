@@ -7,11 +7,17 @@ const filterStandardsSummary = require('./filter')
 const buildStandards = async (callerId, applicationId, standardsSummary) => {
   for (const standard of standards) {
     const standardsCode = standardsCodes.find(a => a.code === standard.code).standardCode
-    const actionCodes = filterStandardsSummary(standardsSummary, standardsCode)
+    const actionCodes = getParcelClaimActions(standardsSummary, standardsCode)
     await getParcelsByActionCode(callerId, applicationId, actionCodes, standard)
   }
 
   return { standards, applicationId }
+}
+
+const getParcelClaimActions = (standardsSummary, standardsCode) => {
+  const actions = filterStandardsSummary(standardsSummary, standardsCode)
+  return actions.filter(p => p.claimAtLevel === 'PARCEL')
+    .map(a => a.code)
 }
 
 const getStandards = async (callerId, sbi, applicationId) => {
