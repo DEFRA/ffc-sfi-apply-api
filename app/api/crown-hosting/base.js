@@ -13,6 +13,14 @@ async function post (url, data, callerId) {
   return payload
 }
 
+async function put (url, data, callerId) {
+  const { payload } = await wreck.put(`${config.chApiGateway}${url}`, {
+    payload: data,
+    ...getConfiguration(callerId)
+  })
+  return payload
+}
+
 const getConfiguration = (callerId) => {
   return {
     headers: {
@@ -25,5 +33,6 @@ const getConfiguration = (callerId) => {
 
 module.exports = {
   get,
-  post
+  post,
+  put
 }
