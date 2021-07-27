@@ -20,18 +20,18 @@ const calculatePaymentRates = async (callerId, applicationId, parcels, code) => 
   const actionCodes = getParcelPaymentValues(standardsSummary, standardsCode)
   const totalArea = parcels.reduce((a, b) => a + (b.area || 0), 0)
 
-  const calculate = { paymentRates: {} }
+  const paymentRates = {}
 
   for (const key in actionCodes) {
     const ambitionRate = actionCodes[key].paymentRate || 0
     const ambitionLevel = actionCodes[key].ambitionLevel
-    calculate.paymentRates[ambitionLevel] = {
+    paymentRates[ambitionLevel] = {
       rate: ambitionRate,
       paymentAmount: (totalArea * ambitionRate).toFixed(2)
     }
   }
 
-  return calculate
+  return paymentRates
 }
 
 module.exports = calculatePaymentRates
