@@ -1,10 +1,10 @@
 const { getParcelLevelAction } = require('../api/crown-hosting')
 
 const dedupelication = (parcels) => {
-  return parcels.map(e => e.id)
-    .map((e, i, final) => final.indexOf(e) === i && i)
-    .filter(obj => parcels[obj])
-    .map(e => parcels[e])
+  return parcels.map(parcel => parcel.id)
+    .map((parcel, i, final) => final.indexOf(parcel) === i && i)
+    .filter(parcel => parcels[parcel])
+    .map(parcel => parcels[parcel])
 }
 
 const getParcelsByActionCode = async (callerId, applicationId, actionCodes, standard) => {
