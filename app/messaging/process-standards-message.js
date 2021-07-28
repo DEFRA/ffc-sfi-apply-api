@@ -11,7 +11,7 @@ async function processStandardsMessage (message, receiver) {
     await cache.update('standards', message.correlationId, { ready: false })
     const application = await cache.get('application', message.correlationId)
     const standards = await getStandards(callerId, sbi, application.applicationId)
-
+    console.info(`application: ${application.applicationId}`)
     await cache.update('standards', message.correlationId, { standards: standards.standards, ready: true })
     await cache.update('application', message.correlationId, { applicationId: standards.applicationId })
 
