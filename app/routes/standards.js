@@ -10,7 +10,7 @@ module.exports = [{
       if (correlationId) {
         const cacheData = await cache.get('standards', correlationId)
         if (cacheData && cacheData.standards !== undefined && cacheData.ready) {
-          return h.response(cacheData).code(200)
+          return h.response({ standards: cacheData.standards, agreementNumber: cacheData.agreementNumber }).code(200)
         }
       }
       return h.response(`value for ${correlationId} not in cache, try later`).code(202)

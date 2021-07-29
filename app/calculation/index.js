@@ -1,22 +1,35 @@
-const buildResponse = (calculationPayload) => {
-  calculate(calculationPayload, 'soilProtection', 6)
-  calculate(calculationPayload, 'permanentGrasslandProtection', 6)
-  calculate(calculationPayload, 'moorlandGrazing', 6)
-  calculate(calculationPayload, 'livestockWelfare', 6)
-  return calculationPayload
+const filterStandardsSummary = require('../standards/filter')
+const standardsCodes = require('../standards/standards-codes')
+const paymentRateCodes = require('./payment-rate-codes')
+const { getStandardsSummary } = require('../api/crown-hosting')
+
+const getParcelPaymentValues = (standardsSummary, standardsCode) => {
+  const actions = filterStandardsSummary(standardsSummary, standardsCode)
+  return actions.filter(p => p.claimAtLevel === 'PARCEL')
+    .map(a => ({
+      ambitionLevel: paymentRateCodes.find(x => x.code === a.code).ambitionLevel,
+      paymentRate: a.paymentRate
+    }))
 }
 
-const calculate = (calculationPayload, standardType, amount) => {
-  const standard = calculationPayload.calculation.standards[standardType].actions
-  for (const [key, value] of Object.entries(standard)) {
-    standard[key] = value.map(action => {
-      action.expression = 'x*y'
-      action.value = 616800
-      action.expression = `AREA*${amount}`
-      action.value = action.area * amount
-      return action
-    })
+const calculatePaymentRates = async (callerId, applicationId, parcels, code) => {
+  const standardsSummary = await getStandardsSummary(callerId, applicationId)
+  const standardsCode = standardsCodes.find(a => a.code === code).standardCode
+  const actionCodes = getParcelPaymentValues(standardsSummary, standardsCode)
+  const totalArea = parcels.reduce((a, b) => a + (b.area || 0), 0)
+
+  const paymentRates = {}
+
+  for (const key in actionCodes) {
+    const ambitionRate = actionCodes[key].paymentRate || 0
+    const ambitionLevel = actionCodes[key].ambitionLevel
+    paymentRates[ambitionLevel] = {
+      rate: ambitionRate,
+      paymentAmount: (totalArea * ambitionRate).toFixed(2)
+    }
   }
+
+  return paymentRates
 }
 
-module.exports = buildResponse
+module.exports = calculatePaymentRates

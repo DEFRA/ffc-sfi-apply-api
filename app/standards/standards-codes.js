@@ -1,11 +1,11 @@
 const standardsCodes = [
   {
     standardCode: 'ARABSOIL',
-    code: '130'
+    code: '110'
   },
   {
     standardCode: 'IMPGRASSOIL',
-    code: '110'
+    code: '130'
   }
 ]
 

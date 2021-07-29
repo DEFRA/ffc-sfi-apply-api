@@ -1,5 +1,9 @@
 const { getParcelLevelAction } = require('../api/crown-hosting')
 
+const dedupelication = (parcels) => {
+  return parcels.filter((parcel, i, self) => i === self.findIndex(p => p.id === parcel.id))
+}
+
 const getParcelsByActionCode = async (callerId, applicationId, actionCodes, standard) => {
   const promises = []
   const actionCodesLength = actionCodes.length
@@ -9,6 +13,7 @@ const getParcelsByActionCode = async (callerId, applicationId, actionCodes, stan
   }
 
   standard.parcels = []
+  let standardParcels = []
 
   await Promise.all(promises).then(results => {
     results.map(result => {
@@ -18,9 +23,11 @@ const getParcelsByActionCode = async (callerId, applicationId, actionCodes, stan
         warnings: []
       }))
 
-      standard.parcels = [...parcels, ...standard.parcels]
+      standardParcels = [...parcels, ...standardParcels]
     })
   })
+
+  standard.parcels = [...dedupelication(standardParcels), ...standard.parcels]
 }
 
 module.exports = getParcelsByActionCode
