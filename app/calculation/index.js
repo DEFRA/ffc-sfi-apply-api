@@ -6,12 +6,10 @@ const { getStandardsSummary } = require('../api/crown-hosting')
 const getParcelPaymentValues = (standardsSummary, standardsCode) => {
   const actions = filterStandardsSummary(standardsSummary, standardsCode)
   return actions.filter(p => p.claimAtLevel === 'PARCEL')
-    .map(a => {
-      return {
-        ambitionLevel: paymentRateCodes.find(x => x.code === a.code).ambitionLevel,
-        paymentRate: a.paymentRate
-      }
-    })
+    .map(a => ({
+      ambitionLevel: paymentRateCodes.find(x => x.code === a.code).ambitionLevel,
+      paymentRate: a.paymentRate
+    }))
 }
 
 const calculatePaymentRates = async (callerId, applicationId, parcels, code) => {
