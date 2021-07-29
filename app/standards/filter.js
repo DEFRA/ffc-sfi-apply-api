@@ -15,16 +15,10 @@ const getActions = (ambitions) => {
     .flat()
 }
 
-const getParcelClaimActions = (actions) => {
-  return actions.filter(p => p.claimAtLevel === 'PARCEL')
-    .map(a => a.code)
-}
-
 const filterStandardsSummary = (standardsSummary, code) => {
   const applicableStandards = getApplicableStandards(standardsSummary, code)
   const ambitions = getAmbitions(applicableStandards)
-  const actions = getActions(ambitions)
-  return getParcelClaimActions(actions)
+  return getActions(ambitions)
 }
 
 module.exports = filterStandardsSummary
