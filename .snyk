@@ -1,0 +1,9 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-IOREDIS-1567196:
+    - '@hapi/catbox-redis > ioredis':
+        reason: Not applicable
+        expires: '2021-09-23T10:46:35.971Z'
+patch: {}
