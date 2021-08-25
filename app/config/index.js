@@ -7,7 +7,6 @@ const { development, production, test } = require('./constants').environments
 const schema = Joi.object({
   port: Joi.number().default(3001),
   env: Joi.string().valid(development, test, production).default(development),
-  mockSitiAgriEndpoint: Joi.string().uri().required(),
   chApiGateway: Joi.string().default('').allow(''),
   restClientTimeoutMillis: Joi.number().default(60000)
 })
@@ -16,7 +15,6 @@ const schema = Joi.object({
 const config = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
-  mockSitiAgriEndpoint: process.env.MOCK_SITI_AGRI_ENDPOINT,
   chApiGateway: process.env.CH_API_GATEWAY,
   restClientTimeoutMillis: process.env.REST_CLIENT_TIMEOUT_IN_MILLIS
 }

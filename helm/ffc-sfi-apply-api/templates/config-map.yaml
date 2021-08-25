@@ -21,7 +21,6 @@ data:
   WITHDRAW_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.withdrawSubscriptionAddress }}
   REQUEST_SBI_TOPIC_ADDRESS: {{ quote .Values.container.requestSbiTopicAddress }}
   REQUEST_SBI_SUBSCRIPTION_ADDRESS: {{ quote .Values.container.requestSbiSubscriptionAddress }}
-  MOCK_SITI_AGRI_ENDPOINT: {{ quote .Values.container.mockSitiAgriEndpoint }}
   CH_API_GATEWAY: {{ quote .Values.container.chApiGateway }}
   {{- if .Values.container.redisHostname }}
   REDIS_HOSTNAME: {{ quote .Values.container.redisHostname }}
