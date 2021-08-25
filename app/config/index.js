@@ -9,8 +9,7 @@ const schema = Joi.object({
   env: Joi.string().valid(development, test, production).default(development),
   mockSitiAgriEndpoint: Joi.string().uri().required(),
   chApiGateway: Joi.string().default('').allow(''),
-  restClientTimeoutMillis: Joi.number().default(60000),
-  processingInterval: Joi.number().default(100)
+  restClientTimeoutMillis: Joi.number().default(60000)
 })
 
 // Build config
@@ -19,8 +18,7 @@ const config = {
   env: process.env.NODE_ENV,
   mockSitiAgriEndpoint: process.env.MOCK_SITI_AGRI_ENDPOINT,
   chApiGateway: process.env.CH_API_GATEWAY,
-  restClientTimeoutMillis: process.env.REST_CLIENT_TIMEOUT_IN_MILLIS,
-  processingInterval: process.env.PROCESSING_INTERVAL
+  restClientTimeoutMillis: process.env.REST_CLIENT_TIMEOUT_IN_MILLIS
 }
 
 // Validate config
